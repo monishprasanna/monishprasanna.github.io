@@ -17,15 +17,21 @@
       </div>
     </div>
     <script>
-      window.onerror = function(msg, url, lineNo, columnNo, error) {
+      // This catches both JS errors and Resource (404) errors
+      window.addEventListener('error', function(event) {
         const errorText = document.getElementById('error-text');
-        if (errorText) {
-          errorText.textContent = 'Error: ' + msg + ' (Line: ' + lineNo + ')';
+        const statusText = document.getElementById('status-text');
+        if (errorText && statusText) {
+          let message = event.message;
+          if (!message && event.target && event.target.src) {
+            message = 'Failed to load resource: ' + event.target.src;
+          }
+          errorText.textContent = 'System Error: ' + (message || 'Unknown initialization error');
           errorText.style.display = 'block';
-          document.getElementById('status-text').textContent = 'Failed to load gallery';
+          statusText.textContent = 'Initialization Failed';
+          statusText.style.color = '#ff4444';
         }
-        return false;
-      };
+      }, true);
     </script>
   </body>
 </html>
