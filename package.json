@@ -6,7 +6,7 @@
   "homepage": "https://monishprasanna.github.io",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "vite build && cp dist/index.html dist/404.html && touch dist/.nojekyll",
+    "build": "vite build && touch docs/.nojekyll && cp docs/index.html docs/404.html",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
