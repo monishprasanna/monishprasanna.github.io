@@ -35,7 +35,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number; key?
           </span>
         </div>
       </div>
-      
+
       <div className="flex justify-between items-start pt-2">
         <div>
           <h3 className="text-xl font-serif italic text-white/90 group-hover:text-white transition-colors">
@@ -56,25 +56,25 @@ const ProjectCard = ({ project, index }: { project: Project; index: number; key?
 export default function App() {
   const [filter, setFilter] = useState("All");
   const categories = ["All", ...new Set(projects.map(p => p.category))];
-  
-  const filteredProjects = filter === "All" 
-    ? projects 
+
+  const filteredProjects = filter === "All"
+    ? projects
     : projects.filter(p => p.category === filter);
 
   return (
     <div className="min-h-screen bg-[#050505] selection:bg-orange-500 selection:text-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center mix-blend-difference">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           className="text-xl font-serif italic tracking-tighter"
         >
-          Portfolio.
+          Monish
         </motion.div>
-        
+
         <div className="flex gap-8 items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -84,7 +84,7 @@ export default function App() {
             <a href="#" className="hover:text-white transition-colors">About</a>
             <a href="#" className="hover:text-white transition-colors">Contact</a>
           </motion.div>
-          
+
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -113,7 +113,7 @@ export default function App() {
               Creative Developer & Designer
             </span>
           </motion.div>
-          
+
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -146,7 +146,7 @@ export default function App() {
       <section className="px-6 md:px-20 py-32">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
           <div className="max-w-xl">
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -154,7 +154,7 @@ export default function App() {
             >
               Selected Works
             </motion.h2>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -164,17 +164,16 @@ export default function App() {
               A collection of projects where design meets functionality. Each piece is a unique exploration of digital possibilities.
             </motion.p>
           </div>
-          
+
           <div className="flex flex-wrap gap-4">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-4 py-2 rounded-full text-[10px] uppercase tracking-widest transition-all ${
-                  filter === cat 
-                    ? "bg-white text-black font-bold" 
+                className={`px-4 py-2 rounded-full text-[10px] uppercase tracking-widest transition-all ${filter === cat
+                    ? "bg-white text-black font-bold"
                     : "glass text-white/60 hover:text-white"
-                }`}
+                  }`}
               >
                 {cat}
               </button>
@@ -198,14 +197,14 @@ export default function App() {
             <h2 className="text-5xl md:text-7xl font-serif italic mb-10">
               Let's create <br /> something <span className="text-zinc-600">extraordinary.</span>
             </h2>
-            <a 
-              href="mailto:hello@example.com" 
+            <a
+              href="mailto:hello@example.com"
               className="text-2xl md:text-3xl font-light hover:text-zinc-400 transition-colors border-b border-white/20 pb-2"
             >
               hello@example.com
             </a>
           </div>
-          
+
           <div className="flex flex-col justify-between items-start md:items-end">
             <div className="flex gap-6 mb-10">
               <a href="#" className="h-12 w-12 rounded-full glass flex items-center justify-center hover:bg-white hover:text-black transition-all">
@@ -218,7 +217,7 @@ export default function App() {
                 <Mail size={20} />
               </a>
             </div>
-            
+
             <div className="text-[10px] uppercase tracking-[0.3em] text-zinc-600 flex flex-col md:items-end gap-2">
               <span>© 2024 All Rights Reserved</span>
               <span>Built with Passion & Code</span>
